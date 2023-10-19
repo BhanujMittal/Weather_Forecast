@@ -59,3 +59,7 @@ fetchBtn.addEventListener('click', () => {
   fetchWeather(weatherLocation.value)
   weatherLocation.value = ''
 })
+
+window.addEventListener('load', () => {
+  weatherLocation.focus()
+})
