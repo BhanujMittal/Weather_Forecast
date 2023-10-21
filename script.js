@@ -24,8 +24,13 @@ const fetchWeather = async (region) => {
         let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
         let d = new Date();
         day[0].innerHTML = days[d.getDay()]
-        day[1].innerHTML = days[d.getDay() + 1]
-        day[2].innerHTML = days[d.getDay() + 2]
+        if(day[0].innerHTML == days[days.length - 1]) {
+          day[1].innerHTML = days[0]
+          day[2].innerHTML = days[1]
+        } else {
+          day[1].innerHTML = days[d.getDay() + 1]
+          day[2].innerHTML = days[d.getDay() + 2]
+        }
         let temp = document.getElementsByClassName('temp')
         temp[0].innerHTML = (response.forecast)[0]['temperature']
         temp[1].innerHTML = (response.forecast)[1]['temperature']
